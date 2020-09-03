@@ -69,6 +69,8 @@ class HomeViewCellHeader: UIView, BindableType {
         outputs.updatedTime
             .bind(to: updatedTimeLabel.rx.text)
             .disposed(by: disposeBag)
+
+        applyAccessbility(with: outputs)
     }
 
     private func configureUI() {
@@ -95,5 +97,27 @@ class HomeViewCellHeader: UIView, BindableType {
             .right(to: \.rightAnchor, constant: 16.0)
             .centerY(to: \.centerYAnchor)
             .left(to: \.rightAnchor, of: stackView, constant: 8.0)
+    }
+}
+
+extension HomeViewCellHeader {
+    private func applyAccessbility(with outputs: HomeViewCellHeaderModelOutput) {
+        outputs.fullName
+            .subscribe(onNext: { [fullNameLabel] in
+                fullNameLabel.accessibilityLabel = "Full Name: \($0)"
+            })
+            .disposed(by: disposeBag)
+
+        outputs.userName
+            .subscribe(onNext: { [userNameLabel] in
+                userNameLabel.accessibilityLabel = "User Name: \($0)"
+            })
+            .disposed(by: disposeBag)
+
+        outputs.updatedTime
+            .subscribe(onNext: { [updatedTimeLabel] in
+                updatedTimeLabel.accessibilityLabel = "Upload date: \($0)"
+            })
+            .disposed(by: disposeBag)
     }
 }
