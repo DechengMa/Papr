@@ -30,6 +30,7 @@ enum Scene {
     case searchCollections(SearchCollectionsViewModel)
     case searchUsers(SearchUsersViewModel)
     case userProfile(UserProfileViewModel)
+    case mapView(MapViewModel)
 }
 
 extension Scene: TargetScene {
@@ -128,6 +129,10 @@ extension Scene: TargetScene {
             var vc = UserProfileViewController.initFromNib()
             vc.bind(to: viewModel)
             return .push(vc)
+        case let .mapView(viewModel):
+            var vc = MapViewController.initFromNib()
+            vc.bind(to: viewModel)
+            return .presentModally(vc)
         }
     }
 }
