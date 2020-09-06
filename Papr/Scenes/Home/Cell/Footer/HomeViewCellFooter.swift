@@ -138,7 +138,7 @@ class HomeViewCellFooter: UIView, BindableType {
             .bind(to: likeButton.rx.image())
             .disposed(by: disposeBag)
 
-        applyAccessbility(with: outputs)
+        applyAccessibilityLabels(with: outputs)
     }
 
     private func configureUI() {
@@ -147,7 +147,7 @@ class HomeViewCellFooter: UIView, BindableType {
 }
 
 extension HomeViewCellFooter {
-    func applyAccessbility(with outputs: HomeViewCellFooterModelOutput) {
+    func applyAccessibilityLabels(with outputs: HomeViewCellFooterModelOutput) {
         outputs.isLikedByUser
             .subscribe(onNext: { [likeButton] in
                 likeButton.accessibilityLabel = $0 ? "UnLike": "Like"

@@ -80,7 +80,7 @@ class HomeViewCell: UICollectionViewCell, BindableType,  ClassIdentifiable {
             .bind(to: photoImageView.rx.image)
             .disposed(by: disposeBag)
 
-        applyAccessbility(with: outputs)
+        applyAccessibilityLabels(with: outputs)
     }
 
     private func configureUI() {
@@ -113,9 +113,9 @@ class HomeViewCell: UICollectionViewCell, BindableType,  ClassIdentifiable {
 }
 
 extension HomeViewCell {
-    private func applyAccessbility(with outputs: HomeViewCellModelOutput) {
+    private func applyAccessibilityLabels(with outputs: HomeViewCellModelOutput) {
         outputs.photoStream
-            .map { $0.description }
+            .map(\.description)
             .unwrap()
             .subscribe(onNext: { [photoButton] in
                 photoButton.accessibilityLabel = "Image: \($0)"

@@ -70,7 +70,7 @@ class HomeViewCellHeader: UIView, BindableType {
             .bind(to: updatedTimeLabel.rx.text)
             .disposed(by: disposeBag)
 
-        applyAccessbility(with: outputs)
+        applyAccessibilityLabels(with: outputs)
     }
 
     private func configureUI() {
@@ -101,7 +101,7 @@ class HomeViewCellHeader: UIView, BindableType {
 }
 
 extension HomeViewCellHeader {
-    private func applyAccessbility(with outputs: HomeViewCellHeaderModelOutput) {
+    private func applyAccessibilityLabels(with outputs: HomeViewCellHeaderModelOutput) {
         outputs.fullName
             .subscribe(onNext: { [fullNameLabel] in
                 fullNameLabel.accessibilityLabel = "Full Name: \($0)"
