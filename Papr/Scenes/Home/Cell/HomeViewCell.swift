@@ -79,6 +79,8 @@ class HomeViewCell: UICollectionViewCell, BindableType,  ClassIdentifiable {
             .map { $0.image }
             .bind(to: photoImageView.rx.image)
             .disposed(by: disposeBag)
+
+        applyAccessibilityLabels(with: outputs)
     }
 
     private func configureUI() {
@@ -109,3 +111,16 @@ class HomeViewCell: UICollectionViewCell, BindableType,  ClassIdentifiable {
         stackView.addArrangedSubview(footerView)
     }
 }
+
+extension HomeViewCell {
+    private func applyAccessibilityLabels(with outputs: HomeViewCellModelOutput) {
+        outputs.photoStream
+            .map(\.description)
+            .unwrap()
+            .subscribe(onNext: { [photoButton] in
+                photoButton.accessibilityLabel = "Image: \($0)"
+            })
+            .disposed(by: disposeBag)
+    }
+}
+

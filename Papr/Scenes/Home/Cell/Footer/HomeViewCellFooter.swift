@@ -137,9 +137,29 @@ class HomeViewCellFooter: UIView, BindableType {
             .map { $0 ? Papr.Appearance.Icon.heartFillMedium : Papr.Appearance.Icon.heartMedium }
             .bind(to: likeButton.rx.image())
             .disposed(by: disposeBag)
+
+        applyAccessibilityLabels(with: outputs)
     }
 
     private func configureUI() {
         stackViewContainer.add(to: self).pinToEdges()
+    }
+}
+
+extension HomeViewCellFooter {
+    func applyAccessibilityLabels(with outputs: HomeViewCellFooterModelOutput) {
+        outputs.isLikedByUser
+            .subscribe(onNext: { [likeButton] in
+                likeButton.accessibilityLabel = $0 ? "UnLike": "Like"
+            })
+            .disposed(by: disposeBag)
+
+        outputs.likesNumber
+            .subscribe(onNext: { [likesNumberLabel] in
+                likesNumberLabel.accessibilityLabel = "Likes: \($0)"
+            })
+            .disposed(by: disposeBag)
+
+        downloadButton.accessibilityLabel = "Download"
     }
 }
