@@ -23,7 +23,6 @@ PODS:
   - TinyNetworking/RxSwift (4.0.0):
     - RxSwift (~> 5.0)
     - TinyNetworking/Core
-  - VanillaConstraints (1.0.4)
 
 DEPENDENCIES:
   - Action
@@ -34,7 +33,6 @@ DEPENDENCIES:
   - RxSwift
   - SwiftRandom
   - TinyNetworking/RxSwift
-  - VanillaConstraints
 
 SPEC REPOS:
   trunk:
@@ -49,7 +47,6 @@ SPEC REPOS:
     - RxSwift
     - SwiftRandom
     - TinyNetworking
-    - VanillaConstraints
 
 SPEC CHECKSUMS:
   Action: 0d14986aad0f1330aa27ce65d0cdeaacbb63d91c
@@ -63,8 +60,7 @@ SPEC CHECKSUMS:
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   TinyNetworking: c0b2cbfe8db8451e42c3371a3eecfc61538b310a
-  VanillaConstraints: 72ceb6f087b4467b22209d078e43819d8d331bf5
 
-PODFILE CHECKSUM: bd78bb32d0ba756d258cc92ea07688e0f772ce90
+PODFILE CHECKSUM: 1544d4828d3001b2e52f13968426e900bf073cea
 
 COCOAPODS: 1.9.3
