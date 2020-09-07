@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import VanillaConstraints
 
 class SearchUsersViewController: UIViewController, BindableType {
 
@@ -60,12 +59,27 @@ class SearchUsersViewController: UIViewController, BindableType {
     // MARK: UI
     private func configureLoadingView() {
         loadingView = LoadingView(frame: tableView.frame)
-        loadingView.add(to: view).pinToEdges()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
     }
 
     private func configureTableView() {
         tableView = UITableView(frame: .zero)
-        tableView.add(to: view).pinToEdges()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+
         tableView.register(cellType: UserCell.self)
         tableView.rowHeight = 60
         dataSource = RxTableViewSectionedReloadDataSource<SearchUsersSectionModel>(

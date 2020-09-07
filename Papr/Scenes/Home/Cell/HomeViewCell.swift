@@ -88,16 +88,28 @@ class HomeViewCell: UICollectionViewCell, BindableType,  ClassIdentifiable {
         let headerViewHeight: CGFloat = 80.0
         let footerViewHeight: CGFloat = 60.0
 
-        stackView.add(to: contentView).pinToEdges()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        ])
 
-        photoButton.add(to: contentView)
-            .top(to: \.topAnchor, constant: headerViewHeight)
-            .bottom(to: \.bottomAnchor, constant: footerViewHeight)
-            .left(to: \.leftAnchor)
-            .right(to: \.rightAnchor)
+        photoButton.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(photoButton)
+        NSLayoutConstraint.activate([
+            photoButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: headerViewHeight),
+            photoButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: footerViewHeight),
+            photoButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            photoButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        ])
 
-        headerView.height(headerViewHeight)
-        footerView.height(footerViewHeight)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.heightAnchor.constraint(equalToConstant: headerViewHeight).isActive = true
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        footerView.heightAnchor.constraint(equalToConstant: footerViewHeight).isActive = true
 
         photoButton.isExclusiveTouch = true
 

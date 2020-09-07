@@ -84,19 +84,24 @@ class HomeViewCellHeader: UIView, BindableType {
         stackView.addArrangedSubview(fullNameLabel)
         stackView.addArrangedSubview(userNameLabel)
 
-        profileImageView.add(to: self)
-            .left(to: \.leftAnchor, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
-            .size(CGSize(width: 48.0, height: 48.0))
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(profileImageView)
+        NSLayoutConstraint.activate([
+            profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16.0),
+            profileImageView.heightAnchor.constraint(equalToConstant: 48.0),
+            profileImageView.widthAnchor.constraint(equalToConstant: 48.0),
+        ])
 
-        stackView.add(to: self)
-            .left(to: \.rightAnchor, of: profileImageView, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(stackView)
+        stackView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 16.0).isActive = true
 
-        updatedTimeLabel.add(to: self)
-            .right(to: \.rightAnchor, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
-            .left(to: \.rightAnchor, of: stackView, constant: 8.0)
+        updatedTimeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(updatedTimeLabel)
+        NSLayoutConstraint.activate([
+            updatedTimeLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16.0),
+            updatedTimeLabel.leftAnchor.constraint(equalTo: stackView.rightAnchor, constant: 8.0),
+        ])
     }
 }
 

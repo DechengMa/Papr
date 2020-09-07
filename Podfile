@@ -20,9 +20,6 @@ target 'Papr' do
   # Transition
   pod 'Hero'
 
-  # Constraints
-  pod 'VanillaConstraints'
-
   # RandomNames, Avatars
   pod 'SwiftRandom'
 

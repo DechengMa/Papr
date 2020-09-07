@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import VanillaConstraints
 
 class LoadingView: UIView {
 
@@ -18,11 +17,15 @@ class LoadingView: UIView {
         super.init(frame: frame)
 
         backgroundColor = .white
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
 
-        activityIndicatorView
-            .add(to: self)
-            .size(CGSize(width: 30, height: 30))
-            .center()
+        self.addSubview(activityIndicatorView)
+        NSLayoutConstraint.activate([
+            activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            activityIndicatorView.heightAnchor.constraint(equalToConstant: 30),
+            activityIndicatorView.widthAnchor.constraint(equalToConstant: 30),
+        ])
 
         activityIndicatorView.startAnimating()
     }

@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxDataSources
-import VanillaConstraints
 
 class HomeViewController: UIViewController, BindableType {
 
@@ -117,7 +116,16 @@ class HomeViewController: UIViewController, BindableType {
 
     private func configureCollectionView() {
         collectionView.backgroundColor = .white
-        collectionView.add(to: view).pinToEdges()
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
+
         collectionView.register(cellType: HomeViewCell.self)
         dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(
             configureCell: collectionViewDataSource
