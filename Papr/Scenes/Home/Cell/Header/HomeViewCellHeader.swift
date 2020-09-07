@@ -86,16 +86,13 @@ class HomeViewCellHeader: UIView, BindableType {
 
         profileImageView.add(to: self)
             .left(to: \.leftAnchor, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
             .size(CGSize(width: 48.0, height: 48.0))
 
         stackView.add(to: self)
             .left(to: \.rightAnchor, of: profileImageView, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
 
         updatedTimeLabel.add(to: self)
             .right(to: \.rightAnchor, constant: 16.0)
-            .centerY(to: \.centerYAnchor)
             .left(to: \.rightAnchor, of: stackView, constant: 8.0)
     }
 }
