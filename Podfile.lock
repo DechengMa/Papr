@@ -18,6 +18,7 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - SwiftRandom (1.0.0)
   - TinyNetworking/Core (4.0.0)
   - TinyNetworking/RxSwift (4.0.0):
     - RxSwift (~> 5.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RxDataSources
   - RxNuke
   - RxSwift
+  - SwiftRandom
   - TinyNetworking/RxSwift
   - VanillaConstraints
 
@@ -45,6 +47,7 @@ SPEC REPOS:
     - RxNuke
     - RxRelay
     - RxSwift
+    - SwiftRandom
     - TinyNetworking
     - VanillaConstraints
 
@@ -58,9 +61,10 @@ SPEC CHECKSUMS:
   RxNuke: 7c56f40f26bc3ec715cff5f5355119ca7989b010
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
   TinyNetworking: c0b2cbfe8db8451e42c3371a3eecfc61538b310a
   VanillaConstraints: 72ceb6f087b4467b22209d078e43819d8d331bf5
 
-PODFILE CHECKSUM: f1e07f045c2c8e0c921b48f2659735a2cba721c5
+PODFILE CHECKSUM: bd78bb32d0ba756d258cc92ea07688e0f772ce90
 
 COCOAPODS: 1.9.3

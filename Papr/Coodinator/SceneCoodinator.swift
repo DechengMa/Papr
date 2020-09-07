@@ -82,6 +82,11 @@ class SceneCoordinator: NSObject, SceneCoordinatorType {
                 subject.onCompleted()
             }
             currentViewController = SceneCoordinator.actualViewController(for: viewController)
+        case let .presentModally(viewController):
+            currentViewController.present(viewController, animated: true) {
+                subject.onCompleted()
+            }
+            currentViewController = SceneCoordinator.actualViewController(for: viewController)
         case let .alert(viewController):
             currentViewController.present(viewController, animated: true) {
                 subject.onCompleted()

@@ -31,6 +31,7 @@ class PhotoDetailsViewController: UIViewController, BindableType {
     @IBOutlet var statsContainerView: UIView!
     @IBOutlet var dismissButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet var statsContainerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var mapButton: UIButton!
 
     // MARK: Private
     private static let imagePipeline = Nuke.ImagePipeline.shared
@@ -66,6 +67,7 @@ class PhotoDetailsViewController: UIViewController, BindableType {
         let this = PhotoDetailsViewController.self
 
         dismissButton.rx.action = inputs.dismissAction
+        mapButton.rx.action = inputs.pushMapAction
 
         outputs.photoStream
             .map { $0.id }
@@ -88,6 +90,10 @@ class PhotoDetailsViewController: UIViewController, BindableType {
             .bind { [weak self] in
                 self?.configureContentSize(withHeight: $0)
             }
+            .disposed(by: disposeBag)
+
+        outputs.photo.map { $0.location?.position?.latitude == nil }
+            .bind(to: mapButton.rx.isHidden)
             .disposed(by: disposeBag)
 
         outputs.likedByUser

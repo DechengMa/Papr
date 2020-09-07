@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +17,7 @@
                 <outlet property="dismissButtonTopConstraint" destination="MPJ-KW-Vc7" id="ih2-BJ-Tu0"/>
                 <outlet property="downloadImageView" destination="U2J-FL-KwH" id="S7P-Ar-01c"/>
                 <outlet property="likeButton" destination="Aj9-a9-vc9" id="72Q-jU-dVQ"/>
+                <outlet property="mapButton" destination="57u-NL-AH8" id="Ime-4o-l4E"/>
                 <outlet property="moreButton" destination="2LU-Ib-n7p" id="FWM-hX-e4t"/>
                 <outlet property="statsContainerView" destination="anw-Kd-QsH" id="qaS-H8-kQG"/>
                 <outlet property="statsContainerViewBottomConstraint" destination="HTO-WM-sqo" id="AgG-aW-p7a"/>
@@ -46,10 +47,10 @@
                     <rect key="frame" x="0.0" y="717" width="375" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zuj-og-SOn">
-                            <rect key="frame" x="16" y="0.0" width="223" height="50"/>
+                            <rect key="frame" x="16" y="0.0" width="246.5" height="50"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Fje-dc-aA0">
-                                    <rect key="frame" x="0.0" y="17.5" width="70.5" height="15"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Fje-dc-aA0">
+                                    <rect key="frame" x="0.0" y="17.5" width="68.5" height="15"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill.regular.small" translatesAutoresizingMaskIntoConstraints="NO" id="De6-lC-yd6">
                                             <rect key="frame" x="0.0" y="0.0" width="32" height="15"/>
@@ -60,15 +61,15 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5673" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAf-Be-4ak">
-                                            <rect key="frame" x="36" y="0.0" width="34.5" height="15"/>
+                                            <rect key="frame" x="34" y="0.0" width="34.5" height="15"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hUH-Cc-GcD">
-                                    <rect key="frame" x="78.5" y="12" width="65.5" height="26"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hUH-Cc-GcD">
+                                    <rect key="frame" x="76.5" y="12" width="63.5" height="26"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aj9-a9-vc9">
                                             <rect key="frame" x="0.0" y="0.0" width="28" height="26"/>
@@ -80,15 +81,15 @@
                                             <state key="normal" image="heart.fill.regular.small"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-Jh-wT2">
-                                            <rect key="frame" x="32" y="0.0" width="33.5" height="26"/>
+                                            <rect key="frame" x="30" y="0.0" width="33.5" height="26"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-8m-cYk">
-                                    <rect key="frame" x="152" y="13.5" width="71" height="23"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-8m-cYk">
+                                    <rect key="frame" x="148" y="13.5" width="69" height="23"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.regular.medium" translatesAutoresizingMaskIntoConstraints="NO" id="U2J-FL-KwH">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="23"/>
@@ -99,13 +100,18 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="549" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIT-zz-e5E">
-                                            <rect key="frame" x="44" y="0.0" width="27" height="23"/>
+                                            <rect key="frame" x="42" y="0.0" width="27" height="23"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57u-NL-AH8" userLabel="Map">
+                                    <rect key="frame" x="225" y="14" width="21.5" height="22"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="map" catalog="system"/>
+                                </button>
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LU-Ib-n7p">
@@ -147,6 +153,7 @@
         <image name="ellipsis.regular.medium" width="93" height="20"/>
         <image name="eye.fill.regular.small" width="106" height="66"/>
         <image name="heart.fill.regular.small" width="78" height="72"/>
+        <image name="map" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.down.regular.medium" width="88" height="107"/>
         <image name="xmark.regular.medium" width="32" height="32"/>
     </resources>

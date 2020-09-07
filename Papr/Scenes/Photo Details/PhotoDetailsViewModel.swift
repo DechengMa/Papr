@@ -16,6 +16,7 @@ protocol PhotoDetailsViewModelInput {
     var dismissAction: CocoaAction { get }
     var revertAction: CocoaAction { get }
     var moreAction: Action<[Any], Void> { get }
+    var pushMapAction: CocoaAction { get }
 }
 
 protocol PhotoDetailsViewModelOutput {
@@ -26,6 +27,7 @@ protocol PhotoDetailsViewModelOutput {
     var likedByUser: Observable<Bool> { get }
     var totalViews: Observable<String> { get }
     var totalDownloads: Observable<String> { get }
+    var photo: Observable<Photo> { get }
 }
 
 protocol PhotoDetailsViewModelType {
@@ -86,6 +88,13 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelType, PhotoDetailsViewMo
             return .empty()
         }
     }()
+
+    lazy var pushMapAction: CocoaAction = {
+        CocoaAction { [unowned self] message in
+            let viewModel = MapViewModel(photo: self.photo)
+            return self.sceneCoordinator.transition(to: Scene.mapView(viewModel))
+        }
+    }()
     
     lazy var revertAction: CocoaAction = {
         CocoaAction { [unowned self] _ in
@@ -108,6 +117,7 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelType, PhotoDetailsViewMo
     let photoStream: Observable<Photo>
     let totalViews: Observable<String>
     let totalDownloads: Observable<String>
+    let photo: Observable<Photo>
 
     // MARK: Privates
     private let cache: Cache
@@ -164,6 +174,8 @@ final class PhotoDetailsViewModel: PhotoDetailsViewModelType, PhotoDetailsViewMo
             .unwrap()
 
         let photo = photoService.photo(withId: photo.id ?? "").share()
+
+        self.photo = photo
 
         totalViews = photo
             .map { $0.views?.abbreviated }
