@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import VanillaConstraints
 
 class SearchViewController: UIViewController, BindableType {
 
@@ -113,6 +112,14 @@ class SearchViewController: UIViewController, BindableType {
         let bouncyView = BouncyView(frame: noResultView.frame)
         bouncyView.configure(emoji: "🏞", message: "Search Unsplash")
         bouncyView.clipsToBounds = true
-        bouncyView.add(to: noResultView).pinToEdges()
+
+        bouncyView.translatesAutoresizingMaskIntoConstraints = false
+        noResultView.addSubview(bouncyView)
+        NSLayoutConstraint.activate([
+            bouncyView.topAnchor.constraint(equalTo: noResultView.topAnchor),
+            bouncyView.bottomAnchor.constraint(equalTo: noResultView.bottomAnchor),
+            bouncyView.trailingAnchor.constraint(equalTo: noResultView.trailingAnchor),
+            bouncyView.leadingAnchor.constraint(equalTo: noResultView.leadingAnchor),
+        ])
     }
 }

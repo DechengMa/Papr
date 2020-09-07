@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import VanillaConstraints
 
 class CollectionsViewController: UIViewController, BindableType {
 
@@ -66,7 +65,15 @@ class CollectionsViewController: UIViewController, BindableType {
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = .white
-        collectionView.add(to: view).pinToEdges()
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
 
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
 

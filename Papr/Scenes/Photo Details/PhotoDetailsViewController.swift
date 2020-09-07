@@ -11,7 +11,6 @@ import Nuke
 import RxNuke
 import RxSwift
 import Hero
-import VanillaConstraints
 
 class PhotoDetailsViewController: UIViewController, BindableType {
 
@@ -191,7 +190,15 @@ class PhotoDetailsViewController: UIViewController, BindableType {
         scrollView.contentMode = .center
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.add(to: view).pinToEdges()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
     }
 
     private func configurePhotoImageView() {

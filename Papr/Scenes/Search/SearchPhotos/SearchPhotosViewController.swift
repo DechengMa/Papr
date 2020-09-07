@@ -91,12 +91,27 @@ class SearchPhotosViewController: UIViewController, BindableType {
     // MARK: UI
     private func configureLoadingView() {
         loadingView = LoadingView(frame: collectionView.frame)
-        loadingView.add(to: view).pinToEdges()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
     }
 
     private func configureCollectionView() {
         collectionView.backgroundColor = .white
-        collectionView.add(to: view).pinToEdges()
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
+
         collectionView.register(cellType: SearchPhotosCell.self)
         dataSource = RxCollectionViewSectionedReloadDataSource<SearchPhotosSectionModel>(
             configureCell:  collectionViewDataSource

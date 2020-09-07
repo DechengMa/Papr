@@ -12,7 +12,6 @@ import RxSwift
 import Nuke
 import RxNuke
 import Action
-import VanillaConstraints
 
 class PaprNavigationController: UINavigationController {
 
@@ -67,7 +66,16 @@ class PaprNavigationController: UINavigationController {
         profileImage.roundCorners(withRadius: Papr.Appearance.Style.imageCornersRadius)
 
         var button = UIButton(frame: .zero)
-        button.add(to: profileImage).size(profileImage.frame.size).pinToEdges()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        profileImage.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: profileImage.topAnchor),
+            button.bottomAnchor.constraint(equalTo: profileImage.bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: profileImage.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: profileImage.trailingAnchor),
+            button.heightAnchor.constraint(equalToConstant: profileImage.frame.size.height),
+            button.widthAnchor.constraint(equalToConstant: profileImage.frame.size.width),
+        ])
 
         let profileImageBarButtonItem = UIBarButtonItem(customView: profileImage)
         button.rx.action = showUserProfileAction
