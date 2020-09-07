@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import SwiftRandom
 
 class PhotoAnnotation: NSObject, MKAnnotation {
     let title: String?
@@ -20,7 +21,7 @@ class PhotoAnnotation: NSObject, MKAnnotation {
         coordinate: CLLocationCoordinate2D,
         photoUrl: String
     ) {
-        self.title = title
+        self.title = Randoms.randomFakeName()
         self.subtitle = subtitle
         self.coordinate = coordinate
         self.photoUrl = photoUrl

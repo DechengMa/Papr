@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import RxSwift
 import Nuke
+import SwiftRandom
 
 class MapViewController: UIViewController, BindableType {
 
@@ -74,8 +75,11 @@ extension MapViewController: MKMapViewDelegate {
 
                 annotationView?.image = baseAnnotationView.renderSelfAsImage()
 
-                let leftCalloutImageView = baseAnnotationView.imageView
-                annotationView?.leftCalloutAccessoryView = leftCalloutImageView
+                Randoms.randomGravatar { (image, error) in
+                    DispatchQueue.main.async {
+                        annotationView?.leftCalloutAccessoryView = UIImageView(image: image)
+                    }
+                }
             }
         } else {
             annotationView?.annotation = annotation

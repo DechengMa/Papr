@@ -23,6 +23,9 @@ target 'Papr' do
   # Constraints
   pod 'VanillaConstraints'
 
+  # RandomNames, Avatars
+  pod 'SwiftRandom'
+
   # Pods for Papr
 
   target 'PaprTests' do

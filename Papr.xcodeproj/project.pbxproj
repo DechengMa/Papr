@@ -958,6 +958,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxNuke/RxNuke.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftRandom/SwiftRandom.framework",
 				"${BUILT_PRODUCTS_DIR}/TinyNetworking/TinyNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/VanillaConstraints/VanillaConstraints.framework",
 			);
@@ -972,6 +973,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxNuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRandom.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VanillaConstraints.framework",
 			);
