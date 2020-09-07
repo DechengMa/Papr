@@ -24,7 +24,6 @@ class BouncyView: UIView {
         emojiLabel.textAlignment = .center
         emojiLabel.backgroundColor = .clear
         emojiLabel.font = .systemFont(ofSize: 60)
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(emojiLabel)
         emojiLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         emojiLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -35.0).isActive = true
@@ -36,7 +35,6 @@ class BouncyView: UIView {
         messageLabel.backgroundColor = .clear
         messageLabel.font = UIFont.preferredFont(forTextStyle: .body)
         messageLabel.textColor = UIColor(hexString: "a3aab1")
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(messageLabel)
         messageLabel.centerXAnchor.constraint(equalTo: emojiLabel.centerXAnchor).isActive = true
         messageLabel.topAnchor.constraint(equalTo: emojiLabel.bottomAnchor, constant: 35.0).isActive = true
